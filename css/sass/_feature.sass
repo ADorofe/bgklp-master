@@ -1,0 +1,34 @@
+.section-feature
+	position: relative
+	padding: 60px 0
+
+.bg-feature
+	background-image: url(../img/slides/1.jpg)
+	top: 0
+	bottom: 0
+	position: absolute
+	width: 100%
+	background-attachment: fixed
+	background-position: center
+	background-size: cover
+	&::before
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: rgba(0, 126, 160, 0.58)
+
+.feature
+	color: #fff
+	text-align: center
+
+.feature-counter
+	font-family: 'Playfair Display', serif
+	font-size: 64px
+	font-variant-ligatures: common-ligatures
+
+.feature-desc
+	font-family: "Roboto"
+	font-size: 18px

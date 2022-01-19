@@ -1,0 +1,22 @@
+#cf7md-form 
+    .mdc-radio
+        &::before, &::after
+            background-color: $main-color
+      
+    .mdc-radio__native-control:enabled:checked+.mdc-radio__background 
+        .mdc-radio__outer-circle, .mdc-radio__inner-circle
+            border-color: $main-color
+
+    .mdc-button--raised:not(:disabled), .mdc-button--unelevated:not(:disabled) 
+        background-color: $main-color
+        
+    .mdc-button--raised:not(:disabled):hover, .mdc-button--unelevated:not(:disabled):hover
+        background-color: #0c9fe0
+    
+    .mdc-checkbox
+        &::before, &::after
+            background-color: $main-color
+
+        .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background, 
+            border-color: $main-color
+            background-color: $main-color

@@ -1,0 +1,57 @@
+thead
+    th
+        background-color: #d9edf7
+        font-weight: 700
+        vertical-align: middle
+        border-bottom: 1px solid #ddd
+        padding: 8px
+        border: none
+        text-align: left
+
+tbody
+    td
+        vertical-align: top
+        padding: 10px 5px
+    tr
+        background-color: #fff
+        border-bottom: 1px solid #ddd
+
+    tr:nth-child(even)
+        background-color: #edf1f3
+    tr:hover
+        background-color: #e7f3f9
+
+.table-plan
+    @media only screen and (max-width: $breakpoint - 1)
+        
+        table, thead, tbody, th, td, tr
+            display: block
+        
+        thead tr
+            position: absolute
+            top: -9999px
+            left: -9999px
+
+        tr
+            margin: 0 0 1rem 0
+
+        td
+            border-bottom: 1px solid $main-color
+            position: relative
+            padding: 0 0 0 50%
+
+            &:before
+                position: absolute
+                top: 0
+                left: 6px
+                width: 45%
+                padding-right: 10px
+
+            &:nth-of-type(1):before
+                content: "Специальность, направление специальности, специализация, срок обучения"
+            &:nth-of-type(2):before
+                content: "Квалификация"
+            &:nth-of-type(3):before
+                content: "План приема"
+            &:nth-of-type(4):before
+                content: "Вступительные испытания"

@@ -1,0 +1,576 @@
+button
+    box-sizing: boreder-box
+    border: none
+    background: transparent
+    outline: none
+.overlay
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    visibility: hidden
+    background: $overlay-bg
+    opacity: 0
+    -webkit-transition: .3s, top 0s ease .3s
+    transition: .3s, top 0s ease .3s
+    z-index: 10
+    pointer-events: none
+    height: 100%
+
+.mobile-nav
+    display: block
+    position: absolute
+    top: 0
+    z-index: 2
+    right: 0
+
+    @media (min-width: $breakpoint)
+        display: none
+
+.open-mobile-menu    
+    font-size: 18px
+    padding: 2px 8px
+    box-sizing: content-box
+    display: block
+    color: $main-color
+    border: 2px solid #0d88bf
+    background: #fff
+    margin: 1px
+
+.home
+    .open-mobile-menu
+        color: #fff
+        border: 2px solid #fff
+        background: transparent
+
+
+
+.logo
+    width: 110px
+    fill: none
+    stroke: #000 
+    stroke-miterlimit: 10
+    margin-left: 20px    
+    margin: 5px auto
+    display: block
+    transition: width .3s
+
+.top-nav
+    position: fixed
+    top: 0
+    right: 0
+    bottom: auto
+    height: 100vh
+    width: 280px
+    padding: 0
+    background-color: $menu-bg
+    z-index: 12
+    -webkit-transform: translate3d(100%,0,0)
+    transform: translate3d(100%,0,0)
+    -webkit-transition: .3s
+    transition: .3s
+    visibility: hidden
+    opacity: 1
+    -webkit-box-shadow: -5px 0px 8px 4px rgba(0,0,0,.2)
+    box-shadow: -5px 0px 8px 4px rgba(0,0,0,.2)
+
+    @media (min-width: $breakpoint)
+        visibility: visible
+        transform: none
+        position: relative
+        height: auto
+        width: 100% 
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        padding: 5px 0
+        -webkit-transition: none
+        transition: none
+
+    &__logo
+        display: flex
+        flex-direction: column
+        margin: 0 15px
+        text-decoration: none
+
+        &:hover, &:focus
+            text-decoration: none
+
+        @media (min-width: 1110px)
+            flex-direction: row
+            align-items: center
+
+    &__caption
+        font-size: 14px
+        color: #6d6d6d
+        display: none
+
+        @media (min-width: 1110px)
+            margin-left: 10px
+
+        @media (min-width: $breakpoint)
+            display: block
+
+    &__close        
+        position: absolute
+        width: 40px
+        height: 40px
+        -webkit-transition: .2s
+        transition: .2s
+        cursor: pointer
+        color: #fff
+        padding: 0
+        z-index: 10
+        right: 100%
+        top: 0
+        display: block
+        opacity: 0
+        visibility: hidden
+
+        @media (min-width: 334px)
+            width: 54px
+            height: 54px
+
+        @media (min-width: $breakpoint)
+            display: none
+
+        &::before, &::after
+            content: ''
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 40px
+            border-top: 2px solid
+            margin: -1px 0 0 -20px
+
+            @media (max-width: 334px)
+                width: 30px
+                margin-left: -15px
+
+        &::before
+            -webkit-transform: rotate(45deg)
+            transform: rotate(45deg)
+
+        &::after
+            -webkit-transform: rotate(-45deg)
+            transform: rotate(-45deg)
+
+
+    &__container
+        margin: 0 auto
+        padding: 0
+        height: 100vh
+
+        @media (min-width: $breakpoint)
+            height: auto
+            margin: 0
+            display: flex
+            align-items: center
+
+    &__row
+        position: relative
+        height: 100vh
+        overflow-x: hidden
+        overflow-y: auto
+        -webkit-overflow-scroll: touch
+        padding: 0
+        
+        @media (min-width: $breakpoint)
+            height: auto
+            overflow: visible
+            position: static
+
+
+.top-nav-menu
+    display: block
+    padding: 0
+    margin: 0
+    
+    &__item
+        position: relative
+        padding: 0 20px 0 0        
+        display: block
+        padding: 0
+        margin: 0
+
+        @media (min-width: $breakpoint)
+            float: left
+            position: static
+
+    &__container-l2, &__container-l3
+        display: -webkit-box
+        display: -webkit-flex
+        display: -ms-flexbox
+        display: flex
+        -webkit-box-orient: vertical
+        -webkit-box-direction: normal
+        -webkit-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+        -webkit-transform-origin: top right
+        transform-origin: top right
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 35px
+        padding: 0
+        background-color: #fff
+        z-index: 12
+        -webkit-transform: translate3d(100%,0,0)
+        transform: translate3d(100%,0,0)
+        -webkit-transition: .3s
+        transition: .3s
+        visibility: hidden
+        opacity: 1
+        width: 280px
+
+        @media (min-width: $breakpoint)
+            width: auto
+
+    
+    &__container-l2
+        @media (min-width: $breakpoint)
+            display: block
+            transform: translate3d(0,0,0)
+            position: absolute
+            left: 0
+            top: 100%
+            width: 100%
+            height: auto
+            -webkit-transition: none
+            transition: none
+            bottom: auto
+
+    &__container-l3
+        @media (min-width: $breakpoint)
+            display: block
+            position: relative
+            transform: translate3d(0,0,0)
+            height: auto
+            -webkit-transition: none
+            transition: none
+            bottom: auto
+            max-width: 500px
+
+    &__menu-l2, &__menu-l3
+        list-style: none
+        overflow-x: hidden
+        overflow-y: auto
+        -webkit-overflow-scroll: touch
+        padding: 0 20px
+        transition: .3s
+
+        @media (min-width: $breakpoint)
+            padding: 0
+            -webkit-transition: none
+            transition: none
+
+    &__menu-l2
+        @media (min-width: $breakpoint)
+            display: flex
+            justify-content: space-between
+            margin: 0
+            padding: 20px
+            flex-wrap: wrap
+            max-height: 100vh
+            box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3)
+
+    &__item-l2, &__item-l3
+        margin: 0
+        padding: 0
+
+    &__btn, &__btn-l2, &__btn-l3
+        display: block
+        margin: 0
+        padding: 0 20px 0 35px
+        width: auto
+        word-break: break-word
+        background: $menu-bg
+        border: none
+        border-bottom: 1px solid $menu-sm-border
+        color: $menu-sm-link
+        position: relative
+        text-align: left
+        font-size: 15px
+        font-weight: 400
+        line-height: 20px
+        -webkit-transition: .2s
+        transition: .2s
+        vertical-align: bottom
+        font-family: 'Roboto'
+        text-transform: uppercase
+
+        @media (min-width: $breakpoint)
+            text-decoration: none
+            border: none
+            color: #6d6d6d
+            margin: 0 20px
+            padding: 0
+            -webkit-transition: none
+            transition: none
+        
+        &:hover, &:focus
+            text-decoration: none
+
+    &__btn
+        &::after
+            @media (min-width: $breakpoint)
+                content: ""
+                position: absolute
+                width: 100%
+                transform: scaleX(0)
+                height: 2px
+                bottom: 0
+                left: 0
+                background-color: $main-color
+                transform-origin: bottom right
+                transition: transform 0.25s ease-out
+        @media (min-width: $breakpoint)
+            &:hover, &:focus
+                &::after
+                    transform: scaleX(1)
+                    transform-origin: bottom left
+
+    &__btn-text
+        display: inline-block
+        vertical-align: middle
+        font-size: 14px
+        display: block
+        padding: 10px 0
+
+        @media (min-width: $breakpoint)
+            font-size: 14px
+            border: none
+            padding: 10px 0
+
+        &--link
+            padding-left: 20px
+
+    &__btn-l2, &__btn-l3
+        margin: 0 -20px  
+        
+        @media (min-width: $breakpoint)
+            margin: 0
+
+    &__btn, &__btn-l2
+        &::after
+            @media (max-width: $breakpoint - 1)
+                content: ''
+                position: absolute
+                top: 50%
+                left: 20px
+                width: 6px
+                height: 6px
+                margin: -3px 0 0 -4px
+                border-top: 1px solid #969696
+                border-right: 1px solid #969696
+                -webkit-transform: rotate(-135deg)
+                transform: rotate(-135deg)
+    &__btn-l2
+        @media (min-width: $breakpoint)
+            display: none
+    
+
+//
+// FOLDER MOBILE MENU
+//
+
+.folder-menu-header
+    position: relative
+    font-size: 0
+    font-weight: 500
+    line-height: 20px
+    color: #fff
+    background: $folder-bg
+    display: block
+    -webkit-box-flex: 0
+    -webkit-flex: 0 0 auto
+    -ms-flex: 0 0 auto
+    flex: 0 0 auto
+
+    @media (min-width: $breakpoint)
+        dis
+
+    &__back
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        width: 60px
+        cursor: pointer
+        -webkit-transition: .2s
+        transition: .2s
+        background: rgba(0,0,0,0)
+        border-left: 1px solid rgba(0,0,0,.15)
+
+        &::before
+            content: ''
+            position: absolute
+            top: 50%
+            right: 50%
+            width: 10px
+            height: 10px
+            border-top: 2px solid
+            border-right: 2px solid
+            -webkit-transform: rotate(45deg)
+            transform: rotate(45deg)
+            margin: -5px 0 0 -6px
+
+        @media (min-width: $breakpoint)
+            display: none
+
+
+    &__title
+        font-size: 15px
+        padding: 10px 20px
+        text-align: center
+        text-transform: uppercase
+
+    &__back + &__title
+        margin-right: 60px
+        cursor: pointer
+
+        @media (min-width: $breakpoint)
+            margin-right: 0
+            cursor: unset
+
+.sticky-menu
+    position: fixed
+    top: 0
+    width: 100%
+
+    .logo
+        width: 50px
+
+
+
+//
+//  OPEN MOBILE MENU
+//
+
+
+.state--mobile-menu-open
+    
+    .overlay
+        opacity: 1
+        visibility: visible
+        pointer-events: all
+
+    .top-nav
+        visibility: visible
+        -webkit-transform: translate3d(0,0,0)
+        transform: translate3d(0,0,0)
+
+        &__close
+            opacity: 1
+            visibility: visible
+    .top-nav-menu__item.open .top-nav-menu__container-l2
+        visibility: visible
+        -webkit-transform: translate3d(0,0,0)
+        transform: translate3d(0,0,0)
+
+    .top-nav-menu__item-l2.open .top-nav-menu__container-l3
+        visibility: visible
+        -webkit-transform: translate3d(0,0,0)
+        transform: translate3d(0,0,0)
+
+.state--desk-menu-open
+    
+    .top-nav-menu__item.open .top-nav-menu__btn::after
+        @media (min-width: $breakpoint)
+            transform: scaleX(1)
+            transform-origin: bottom left
+
+    .top-nav-menu__item.open .top-nav-menu__container-l2
+        visibility: visible
+
+    .top-nav-menu__item.open .top-nav-menu__container-l3
+        visibility: visible
+
+
+.hidden-desk
+    @media (min-width: $breakpoint)
+        display: none
+
+//
+//  Custom
+//
+
+@media (min-width: $breakpoint)
+    .top-nav-menu__container-l2>.folder-menu-header
+        height: 3px
+
+        &>.folder-menu-header__title
+            display: none
+
+
+//
+//   ishome
+//
+
+.home
+    .header
+        @media (min-width: $breakpoint)
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            z-index: 12
+    .top-nav
+        @media (min-width: $breakpoint)
+            background: transparent
+            box-shadow: none
+            border-bottom: 1px solid #7d7d7d
+    
+    .logo
+
+        @media (min-width: $breakpoint)
+            stroke: #fff
+
+    .top-nav
+        &__caption
+            @media (min-width: $breakpoint)
+                color: #fff
+
+    .top-nav-menu
+        &__btn
+            @media (min-width: $breakpoint)
+                background: transparent
+                color: #fff
+
+    .sticky-menu
+        position: fixed
+        top: 0
+        background: #f7f7f7
+        box-shadow: -5px 0px 8px 4px rgba(0, 0, 0, 0.2)
+        
+        .logo
+            stroke: #000
+
+        .top-nav__caption
+            color: #6d6d6d
+
+        .top-nav-menu__btn
+            color: #6d6d6d
+
+.mobile-contacts
+    list-style-type: none
+    display: flex
+    padding: 8px 0
+    margin: 0
+    width: 100%
+    flex-wrap: nowrap
+    align-items: end
+    justify-content: space-around
+    border-bottom: 1px solid $menu-sm-border
+
+    &__link
+        svg
+            display: inline-block
+            width: 24px
+            height: 24px
+            vertical-align: middle
+            fill: $main-color
+
+
